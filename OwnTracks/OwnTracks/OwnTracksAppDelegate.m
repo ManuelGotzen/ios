@@ -14,6 +14,7 @@
 #import "Location.h"
 #import "OwnTracking.h"
 #import <NotificationCenter/NotificationCenter.h>
+#import "ATConnect.h"
 
 #import <CocoaLumberjack/CocoaLumberjack.h>
 static const DDLogLevel ddLogLevel = DDLogLevelError;
@@ -54,6 +55,8 @@ static const DDLogLevel ddLogLevel = DDLogLevelError;
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+	/*** Apptentive added by Config.io ***/
+	[ATConnect sharedConnection].apiKey = @"40af59763f318b7af65010bbe643675371c91f814a4f59a4d1c7eb0e573cf59f";
     
 #ifdef DEBUG
     [DDLog addLogger:[DDTTYLogger sharedInstance] withLevel:DDLogLevelVerbose];
@@ -64,6 +67,8 @@ static const DDLogLevel ddLogLevel = DDLogLevelError;
     
 #if BUY_OPTION == 1
     if ([[Subscriptions sharedInstance].recording boolValue]) {
+	/*** Apptentive added by Config.io ***/
+	[ATConnect sharedConnection].apiKey = @"40af59763f318b7af65010bbe643675371c91f814a4f59a4d1c7eb0e573cf59f";
         // Start Subscriptions in mode 1 only
     }
 #endif
